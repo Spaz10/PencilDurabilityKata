@@ -10,6 +10,6 @@ public class Paper {
     }
 
     public void write(String textToWrite){
-        text = "apple";
+        text = textToWrite;
     }
 }

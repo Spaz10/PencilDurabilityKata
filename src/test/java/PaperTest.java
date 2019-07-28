@@ -14,4 +14,11 @@ public class PaperTest {
         paper.write("apple");
         assertEquals("apple", paper.getText());
     }
+
+    @Test
+    public void WritingASmallSentenceOnPaperChangesTextToTheInputSentence(){
+        Paper paper = new Paper();
+        paper.write("This is a sentence.");
+        assertEquals("This is a sentence.", paper.getText());
+    }
 }
