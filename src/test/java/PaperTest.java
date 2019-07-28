@@ -7,4 +7,11 @@ public class PaperTest {
         Paper paper = new Paper();
         assertEquals("", paper.getText());
     }
+
+    @Test
+    public void WritingAppleOnPaperChangesTextToApple(){
+        Paper paper = new Paper();
+        paper.write("apple");
+        assertEquals("apple", paper.getText());
+    }
 }
