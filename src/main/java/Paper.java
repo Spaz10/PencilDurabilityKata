@@ -14,6 +14,6 @@ public class Paper {
     }
 
     public void write(String textToWrite){
-        text = textToWrite;
+        text += textToWrite;
     }
 }

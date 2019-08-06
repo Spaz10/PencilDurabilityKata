@@ -30,4 +30,12 @@ public class PaperTest {
         Paper paperWithText = new Paper("banana");
         assertEquals("banana", paperWithText.getText());
     }
+
+    @Test
+    public void TextWrittenOnThePaperShouldAppendToExistingText(){
+        Paper paperWithText = new Paper("She sells sea shells");
+        paperWithText.write(" down by the sea shore");
+
+        assertEquals("She sells sea shells down by the sea shore", paperWithText.getText());
+    }
 }
