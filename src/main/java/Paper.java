@@ -5,6 +5,10 @@ public class Paper {
         this.text = "";
     }
 
+    public Paper(String startText) {
+        this.text = startText;
+    }
+
     public String getText(){
         return text;
     }
