@@ -10,4 +10,13 @@ public class PencilTest {
 
         assertEquals("apple", paper.getText());
     }
+
+    @Test
+    public void TextWrittenByThePencilShouldAlwaysBeAppendedToExistingTextOnThePaper(){
+        Paper paper = new Paper("She sells sea shells");
+        Pencil pencil = new Pencil();
+        pencil.write(paper, " down by the sea shore");
+
+        assertEquals("She sells sea shells down by the sea shore", paper.getText());
+    }
 }
