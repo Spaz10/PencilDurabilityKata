@@ -3,10 +3,11 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class PaperTest {
-    Paper paper = new Paper();
+    private Paper paper;
+
     @Before
     public void setup(){
-
+        paper =  new Paper();
     }
     @Test
     public void PaperTextDefaultsToEmptyString(){
