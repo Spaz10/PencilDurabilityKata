@@ -115,4 +115,11 @@ public class PencilTest {
 
         assertEquals(5, pencil.getLength());
     }
+
+    @Test
+    public void APencilsLengthIsReducedByOneWhenItIsSharpened(){
+        pencil.sharpen();
+
+        assertEquals(4, pencil.getLength());
+    }
 }
