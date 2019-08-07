@@ -6,6 +6,10 @@ public class Pencil {
     }
 
     public void write(Paper paper, String textToWrite) {
+        for(Character character: textToWrite.toCharArray()){
+            this.durability--;
+            paper.write(character.toString());
+        }
         paper.write(textToWrite);
     }
 
