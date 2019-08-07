@@ -67,4 +67,11 @@ public class PencilTest {
 
         assertEquals(20, pencil.getDurability());
     }
+
+    @Test
+    public void WritingNewLinesDoesNotDecreaseDurability(){
+        pencil.write(paper, "\n\n");
+
+        assertEquals(20, pencil.getDurability());
+    }
 }
