@@ -61,4 +61,10 @@ public class PencilTest {
 
         assertEquals("Tex", paper.getText());
     }
+    @Test
+    public void WritingSpacesDoesNotDecreaseDurability(){
+        pencil.write(paper, "            ");
+
+        assertEquals(20, pencil.getDurability());
+    }
 }
