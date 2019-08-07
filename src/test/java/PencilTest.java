@@ -74,4 +74,12 @@ public class PencilTest {
 
         assertEquals(20, pencil.getDurability());
     }
+
+    @Test
+    public void PencilDurabilityDoesNotDecreasePastZero(){
+        Pencil pencilWithLowDurability = new Pencil(1);
+        pencilWithLowDurability.write(paper,"Aa");
+
+        assertEquals(0, pencilWithLowDurability.getDurability());
+    }
 }

@@ -1,4 +1,7 @@
 public class Pencil {
+    private static final int LOWER_CASE_DEGRADATION_AMOUNT = 1;
+    private static final int UPPER_CASE_DEGRADATION_AMOUNT = 2;
+
     private int durability;
 
     public Pencil(int durability){
@@ -10,9 +13,9 @@ public class Pencil {
             if(durability<1) break;
 
             if(Character.isLowerCase(character)){
-                this.durability--;
+                decreaseDurability(LOWER_CASE_DEGRADATION_AMOUNT);
             } else if(Character.isUpperCase(character)) {
-                this.durability -= 2;
+                decreaseDurability(UPPER_CASE_DEGRADATION_AMOUNT);
             }
             paper.write(character.toString());
         }
@@ -20,5 +23,11 @@ public class Pencil {
 
     public int getDurability(){
         return this.durability;
+    }
+
+    private void decreaseDurability(int decreaseBy){
+        if(this.durability > decreaseBy){
+            this.durability -= decreaseBy;
+        } else this.durability = 0;
     }
 }
