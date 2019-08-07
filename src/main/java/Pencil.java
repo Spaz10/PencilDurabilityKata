@@ -7,6 +7,8 @@ public class Pencil {
 
     public void write(Paper paper, String textToWrite) {
         for(Character character: textToWrite.toCharArray()){
+            if(durability<1) break;
+
             if(Character.isLowerCase(character)){
                 this.durability--;
             } else if(Character.isUpperCase(character)) {

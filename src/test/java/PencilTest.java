@@ -7,7 +7,7 @@ public class PencilTest {
     private Paper paper;
     @Before
     public void setup(){
-        pencil =  new Pencil(5);
+        pencil =  new Pencil(20);
         paper = new Paper();
     }
 
@@ -28,20 +28,37 @@ public class PencilTest {
 
     @Test
     public void APencilIsCreatedWithAGivenDurability(){
-        assertEquals(5, pencil.getDurability());
+        assertEquals(20, pencil.getDurability());
     }
 
     @Test
     public void WritingALowercaseLetterDegradesPencilDurabilityByOne(){
         pencil.write(paper, "a");
 
-        assertEquals(4, pencil.getDurability());
+        assertEquals(19, pencil.getDurability());
     }
 
     @Test
     public void WritingAnUppercaseLetterDegradesPencilDurabilityByTwo(){
         pencil.write(paper, "A");
 
-        assertEquals(3, pencil.getDurability());
+        assertEquals(18, pencil.getDurability());
+    }
+
+    @Test
+    public void WritingLowercaseWordTextWithADurabilityOf4WillWriteTheWholeWord(){
+        pencil = new Pencil(4);
+        pencil.write(paper, "text");
+
+        assertEquals("text", paper.getText());
+        assertEquals(0, pencil.getDurability());
+    }
+
+    @Test
+    public void WritingTextWithACapitalizedLetterTWithADurabilityOf4WillOnlyWriteTex(){
+        pencil = new Pencil(4);
+        pencil.write(paper, "Text");
+
+        assertEquals("Tex", paper.getText());
     }
 }
