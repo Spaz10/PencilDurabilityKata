@@ -98,4 +98,14 @@ public class PencilTest {
 
         assertEquals(20, pencil.getPointDurability());
     }
+
+    @Test
+    public void APencilCreatedWithPointDurability40000ThatHasSinceDegradedWhenSharpenedItsPointDurabilityWillBe40000Again(){
+        Pencil pencilWithHighDurability = new Pencil(40000);
+        pencilWithHighDurability.write(paper, "Apple Banana Onion and other things to eat");
+
+        pencilWithHighDurability.sharpen();
+
+        assertEquals(40000, pencilWithHighDurability.getPointDurability());
+    }
 }
