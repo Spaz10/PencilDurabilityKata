@@ -122,4 +122,14 @@ public class PencilTest {
 
         assertEquals(4, pencil.getLength());
     }
+
+    @Test
+    public void WhenAPencilsLengthIsZer0SharpeningItDoesNotRestoreItsDurability(){
+        Pencil pencilWithNoLengthLeft = new Pencil(1,0);
+        pencilWithNoLengthLeft.write(paper, "done");
+
+        pencilWithNoLengthLeft.sharpen();
+
+        assertEquals(0, pencilWithNoLengthLeft.getPointDurability());
+    }
 }

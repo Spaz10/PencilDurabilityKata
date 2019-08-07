@@ -36,7 +36,7 @@ public class Pencil {
 
     public void sharpen(){
         this.length --;
-        this.pointDurability = this.maxPointDurability;
+        if(this.length >0) this.pointDurability = this.maxPointDurability;
     }
 
     private void decreaseDurability(int decreaseBy){
