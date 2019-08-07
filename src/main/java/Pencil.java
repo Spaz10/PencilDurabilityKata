@@ -7,10 +7,13 @@ public class Pencil {
 
     public void write(Paper paper, String textToWrite) {
         for(Character character: textToWrite.toCharArray()){
-            this.durability--;
+            if(Character.isLowerCase(character)){
+                this.durability--;
+            } else if(Character.isUpperCase(character)) {
+                this.durability -= 2;
+            }
             paper.write(character.toString());
         }
-        paper.write(textToWrite);
     }
 
     public int getDurability(){

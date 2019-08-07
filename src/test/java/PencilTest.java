@@ -37,4 +37,11 @@ public class PencilTest {
 
         assertEquals(4, pencil.getDurability());
     }
+
+    @Test
+    public void WritingAnUppercaseLetterDegradesPencilDurabilityByTwo(){
+        pencil.write(paper, "A");
+
+        assertEquals(3, pencil.getDurability());
+    }
 }
