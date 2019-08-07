@@ -28,21 +28,21 @@ public class PencilTest {
 
     @Test
     public void APencilIsCreatedWithAGivenDurability(){
-        assertEquals(20, pencil.getDurability());
+        assertEquals(20, pencil.getPointDurability());
     }
 
     @Test
     public void WritingALowercaseLetterDegradesPencilDurabilityByOne(){
         pencil.write(paper, "a");
 
-        assertEquals(19, pencil.getDurability());
+        assertEquals(19, pencil.getPointDurability());
     }
 
     @Test
     public void WritingAnUppercaseLetterDegradesPencilDurabilityByTwo(){
         pencil.write(paper, "A");
 
-        assertEquals(18, pencil.getDurability());
+        assertEquals(18, pencil.getPointDurability());
     }
 
     @Test
@@ -51,7 +51,7 @@ public class PencilTest {
         pencil.write(paper, "text");
 
         assertEquals("text", paper.getText());
-        assertEquals(0, pencil.getDurability());
+        assertEquals(0, pencil.getPointDurability());
     }
 
     @Test
@@ -65,14 +65,14 @@ public class PencilTest {
     public void WritingSpacesDoesNotDecreaseDurability(){
         pencil.write(paper, "            ");
 
-        assertEquals(20, pencil.getDurability());
+        assertEquals(20, pencil.getPointDurability());
     }
 
     @Test
     public void WritingNewLinesDoesNotDecreaseDurability(){
         pencil.write(paper, "\n\n");
 
-        assertEquals(20, pencil.getDurability());
+        assertEquals(20, pencil.getPointDurability());
     }
 
     @Test
@@ -80,7 +80,7 @@ public class PencilTest {
         Pencil pencilWithLowDurability = new Pencil(1);
         pencilWithLowDurability.write(paper,"Aa");
 
-        assertEquals(0, pencilWithLowDurability.getDurability());
+        assertEquals(0, pencilWithLowDurability.getPointDurability());
     }
 
     @Test
@@ -89,5 +89,13 @@ public class PencilTest {
         pencilWithLowDurability.write(paper, "one");
 
         assertEquals("o  ", paper.getText());
+    }
+
+    @Test
+    public void WhenAPencilIsSharpenedItRegainsItsInitialPointDurability(){
+        pencil.write(paper, "Banana");
+        pencil.sharpen();
+
+        assertEquals(20, pencil.getPointDurability());
     }
 }

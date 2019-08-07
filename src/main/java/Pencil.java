@@ -3,15 +3,17 @@ public class Pencil {
     private static final int UPPER_CASE_DEGRADATION_AMOUNT = 2;
     private static final String SPACE = " ";
 
-    private int durability;
+    private int pointDurability;
+    private int maxPointDurability;
 
     public Pencil(int durability){
-        this.durability = durability;
+        this.pointDurability = durability;
+        this.maxPointDurability = durability;
     }
 
     public void write(Paper paper, String textToWrite) {
         for(Character character: textToWrite.toCharArray()){
-            if(this.durability == 0){
+            if(this.pointDurability == 0){
                 paper.write(SPACE);
             } else paper.write(character.toString());
 
@@ -23,13 +25,17 @@ public class Pencil {
         }
     }
 
-    public int getDurability(){
-        return this.durability;
+    public int getPointDurability(){
+        return this.pointDurability;
+    }
+
+    public void sharpen(){
+        this.pointDurability = this.maxPointDurability;
     }
 
     private void decreaseDurability(int decreaseBy){
-        if(this.durability > decreaseBy){
-            this.durability -= decreaseBy;
-        } else this.durability = 0;
+        if(this.pointDurability > decreaseBy){
+            this.pointDurability -= decreaseBy;
+        } else this.pointDurability = 0;
     }
 }
