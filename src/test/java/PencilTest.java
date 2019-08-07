@@ -59,7 +59,7 @@ public class PencilTest {
         pencil = new Pencil(4);
         pencil.write(paper, "Text");
 
-        assertEquals("Tex", paper.getText());
+        assertEquals("Tex ", paper.getText());
     }
     @Test
     public void WritingSpacesDoesNotDecreaseDurability(){
@@ -81,5 +81,13 @@ public class PencilTest {
         pencilWithLowDurability.write(paper,"Aa");
 
         assertEquals(0, pencilWithLowDurability.getDurability());
+    }
+
+    @Test
+    public void AfterPencilIsDullAllCharactersAreWrittenAsSpaces(){
+        Pencil pencilWithLowDurability = new Pencil(1);
+        pencilWithLowDurability.write(paper, "one");
+
+        assertEquals("o  ", paper.getText());
     }
 }
