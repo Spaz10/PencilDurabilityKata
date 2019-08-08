@@ -132,4 +132,15 @@ public class PencilTest {
 
         assertEquals(0, pencilWithNoLengthLeft.getPointDurability());
     }
+    @Test
+    public void WhenAPencilsIsSharpenedItCanWriteMoreCharacters(){
+        Pencil pencilWithLowDurability = new Pencil(1, 5);
+        pencilWithLowDurability.write(paper, "ab");
+
+        pencilWithLowDurability.sharpen();
+
+        pencilWithLowDurability.write(paper, "a");
+
+        assertEquals("a a", paper.getText());
+    }
 }
