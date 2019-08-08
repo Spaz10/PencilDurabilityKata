@@ -41,6 +41,10 @@ public class Pencil {
         if(this.length >0) this.pointDurability = this.maxPointDurability;
     }
 
+    public void erase(Paper paper, String textToErase){
+        this.eraser.erase(paper, textToErase);
+    }
+
     private void decreaseDurability(int decreaseBy){
         if(this.pointDurability > decreaseBy){
             this.pointDurability -= decreaseBy;

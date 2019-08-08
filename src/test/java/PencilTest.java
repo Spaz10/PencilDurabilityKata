@@ -144,4 +144,12 @@ public class PencilTest {
 
         assertEquals("a a", paper.getText());
     }
+
+    @Test
+    public void EraseReplacesGivenTextWithSpaces(){
+        Paper paperWithText = new Paper("Apple Banana Onion");
+        pencil.erase(paperWithText, "Banana");
+
+        assertEquals("Apple        Onion", paperWithText.getText());
+    }
 }
