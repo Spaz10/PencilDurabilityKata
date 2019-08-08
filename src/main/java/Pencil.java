@@ -58,8 +58,6 @@ public class Pencil {
     }
 
     private void decreaseDurability(int decreaseBy){
-        if(this.pointDurability > decreaseBy){
-            this.pointDurability -= decreaseBy;
-        } else this.pointDurability = 0;
+        this.pointDurability =  Math.max(0, this.pointDurability - decreaseBy);
     }
 }

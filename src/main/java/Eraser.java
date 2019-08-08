@@ -21,13 +21,7 @@ public class Eraser {
         paper.removeText(startIndex, endIndex);
 
         String noWhiteSpace = textToErase.replaceAll("\\s+","");
-        this.decreaseDurability(noWhiteSpace.length());
-    }
-
-    private void decreaseDurability(int decreaseBy){
-        if(this.durability > decreaseBy){
-            this.durability -= decreaseBy;
-        } else this.durability = 0;
+        this.durability = Math.max(0, this.durability - noWhiteSpace.length());
     }
 
 }
