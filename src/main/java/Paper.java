@@ -1,19 +1,19 @@
 public class Paper {
-    private String text;
+    private StringBuilder text;
 
     public Paper() {
-        this.text = "";
+        this.text = new StringBuilder("");
     }
 
     public Paper(String startText) {
-        this.text = startText;
+        this.text = new StringBuilder(startText);
     }
 
     public String getText(){
-        return text;
+        return text.toString();
     }
 
     public void write(String textToWrite){
-        text += textToWrite;
+        text.append(textToWrite);
     }
 }
