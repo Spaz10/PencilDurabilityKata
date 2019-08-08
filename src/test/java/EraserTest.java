@@ -7,7 +7,7 @@ public class EraserTest {
 
     @Before
     public void setup(){
-        eraser =  new Eraser();
+        eraser =  new Eraser(10);
     }
 
     @Test
@@ -51,7 +51,7 @@ public class EraserTest {
 
         eraser.erase(paperWithText, "n");
 
-        assertEquals(4, eraser.getDurability());
+        assertEquals(9, eraser.getDurability());
     }
 
     @Test
@@ -60,14 +60,25 @@ public class EraserTest {
 
         eraser.erase(paperWithText, "a O");
 
-        assertEquals(3, eraser.getDurability());
+        assertEquals(8, eraser.getDurability());
     }
+
     @Test
     public void ErasingNewLineCharactersDoesNotDecreaseDurability(){
         Paper paperWithText = new Paper("Apple Banana O\nnion");
 
         eraser.erase(paperWithText, "a O\n");
 
-        assertEquals(3, eraser.getDurability());
+        assertEquals(8, eraser.getDurability());
+    }
+
+    @Test
+    public void TextShouldBeErasedLeftToRightOnceAnEraserDurabilityReachesZeroItCanNoLongerErase(){
+        Paper paperWithText = new Paper("Buffalo Bill");
+        Eraser eraserWithLowDurability = new Eraser(3);
+
+        eraserWithLowDurability.erase(paperWithText, "Bill");
+
+        assertEquals("Buffalo B   ", paperWithText.getText());
     }
 }

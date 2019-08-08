@@ -147,8 +147,10 @@ public class PencilTest {
 
     @Test
     public void EraseReplacesGivenTextWithSpaces(){
+        Pencil pencilWithEraserDurability = new Pencil(20, 5, 10);
+
         Paper paperWithText = new Paper("Apple Banana Onion");
-        pencil.erase(paperWithText, "Banana");
+        pencilWithEraserDurability.erase(paperWithText, "Banana");
 
         assertEquals("Apple        Onion", paperWithText.getText());
     }

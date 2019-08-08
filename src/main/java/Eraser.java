@@ -18,6 +18,10 @@ public class Eraser {
     public void erase(Paper paper, String textToErase) {
         int startIndex = paper.getText().lastIndexOf(textToErase);
         int endIndex = startIndex + textToErase.length();
+
+        if(textToErase.length() > this.durability){
+            startIndex += (textToErase.length() - this.durability);
+        }
         paper.removeText(startIndex, endIndex);
 
         String noWhiteSpace = textToErase.replaceAll("\\s+","");
