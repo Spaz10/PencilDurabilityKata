@@ -44,4 +44,13 @@ public class EraserTest {
 
         assertEquals(10, eraser.getDurability());
     }
+
+    @Test
+    public void ErasingNonWhiteSpaceCharactersDecreasesDurabiltyByOne(){
+        Paper paperWithText = new Paper("Apple Banana Onion");
+
+        eraser.erase(paperWithText, "n");
+
+        assertEquals(4, eraser.getDurability());
+    }
 }
