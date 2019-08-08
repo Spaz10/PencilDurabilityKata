@@ -9,6 +9,7 @@ public class PaperTest {
     public void setup(){
         paper =  new Paper();
     }
+
     @Test
     public void PaperTextDefaultsToEmptyString(){
         assertEquals("", paper.getText());
