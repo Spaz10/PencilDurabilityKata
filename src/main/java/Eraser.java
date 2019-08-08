@@ -19,7 +19,15 @@ public class Eraser {
         int startIndex = paper.getText().lastIndexOf(textToErase);
         int endIndex = startIndex + textToErase.length();
         paper.removeText(startIndex, endIndex);
-        this.durability -= (endIndex - startIndex);
+
+        String noWhiteSpace = textToErase.replace(" ", "");
+        this.decreaseDurability(noWhiteSpace.length());
+    }
+
+    private void decreaseDurability(int decreaseBy){
+        if(this.durability > decreaseBy){
+            this.durability -= decreaseBy;
+        } else this.durability = 0;
     }
 
 }
