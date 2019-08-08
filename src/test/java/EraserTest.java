@@ -62,4 +62,12 @@ public class EraserTest {
 
         assertEquals(3, eraser.getDurability());
     }
+    @Test
+    public void ErasingNewLineCharactersDoesNotDecreaseDurability(){
+        Paper paperWithText = new Paper("Apple Banana O\nnion");
+
+        eraser.erase(paperWithText, "a O\n");
+
+        assertEquals(3, eraser.getDurability());
+    }
 }

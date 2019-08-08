@@ -20,7 +20,7 @@ public class Eraser {
         int endIndex = startIndex + textToErase.length();
         paper.removeText(startIndex, endIndex);
 
-        String noWhiteSpace = textToErase.replace(" ", "");
+        String noWhiteSpace = textToErase.replaceAll("\\s+","");
         this.decreaseDurability(noWhiteSpace.length());
     }
 
