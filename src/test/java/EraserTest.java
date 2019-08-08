@@ -19,4 +19,12 @@ public class EraserTest {
 
         assertEquals("Apple        Onion", paperWithText.getText());
     }
+    @Test
+    public void EraseReplacesLastOccurrenceOfAWordWithSPaces(){
+        Paper paperWithText = new Paper("How much wood would a woodchuck chuck if a woodchuck could chuck wood?");
+
+        eraser.erase(paperWithText, "chuck");
+
+        assertEquals("How much wood would a woodchuck chuck if a woodchuck could       wood?", paperWithText.getText());
+    }
 }
