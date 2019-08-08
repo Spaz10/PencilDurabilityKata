@@ -39,4 +39,13 @@ public class PaperTest {
 
         assertEquals("She sells sea shells down by the sea shore", paperWithText.getText());
     }
+
+    @Test
+    public void RemoveTextWillReplaceAnyCharsFromStartIndexToEndIndexWithASpace(){
+        Paper paperWithText = new Paper("Apple Banana Onion");
+
+        paperWithText.removeText(6, 12);
+
+        assertEquals("Apple        Onion", paperWithText.getText());
+    }
 }
