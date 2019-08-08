@@ -1,5 +1,5 @@
 public class Eraser {
-    private static final int STANDARD_ERASER_DURABILITY = 5;
+    public static final int STANDARD_ERASER_DURABILITY = 5;
 
     private int durability;
 

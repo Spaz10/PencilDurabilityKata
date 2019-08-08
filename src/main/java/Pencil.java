@@ -12,14 +12,26 @@ public class Pencil {
     private Eraser eraser;
 
     public Pencil(){
-        this(STANDARD_PENCIL_DURABILITY, STANDARD_PENCIL_LENGTH);
+        this(STANDARD_PENCIL_DURABILITY, STANDARD_PENCIL_LENGTH, Eraser.STANDARD_ERASER_DURABILITY);
     }
 
-    public Pencil(int durability, int length){
+    public Pencil(int durability, int length, int eraserDurability){
         this.pointDurability = durability;
         this.maxPointDurability = durability;
         this.length = length;
-        this.eraser = new Eraser();
+        this.eraser = new Eraser(eraserDurability);
+    }
+
+    public int getPointDurability(){
+        return this.pointDurability;
+    }
+
+    public int getLength(){
+        return this.length;
+    }
+
+    public Eraser getEraser(){
+        return this.eraser;
     }
 
     public void write(Paper paper, String textToWrite) {
@@ -34,13 +46,6 @@ public class Pencil {
                 decreaseDurability(UPPER_CASE_DEGRADATION_AMOUNT);
             }
         }
-    }
-
-    public int getPointDurability(){
-        return this.pointDurability;
-    }
-    public int getLength(){
-        return this.length;
     }
 
     public void sharpen(){
