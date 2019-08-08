@@ -7,7 +7,7 @@ public class PencilTest {
     private Paper paper;
     @Before
     public void setup(){
-        pencil =  new Pencil(20, 5);
+        pencil =  new Pencil();
         paper = new Paper();
     }
 

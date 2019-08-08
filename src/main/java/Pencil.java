@@ -1,12 +1,19 @@
 public class Pencil {
     private static final int LOWER_CASE_DEGRADATION_AMOUNT = 1;
     private static final int UPPER_CASE_DEGRADATION_AMOUNT = 2;
+    private static final int STANDARD_PENCIL_DURABILITY = 20;
+    private static final int STANDARD_PENCIL_LENGTH = 5;
+
     private static final String SPACE = " ";
 
     private int pointDurability;
     private int maxPointDurability;
     private int length;
     private Eraser eraser;
+
+    public Pencil(){
+        this(STANDARD_PENCIL_DURABILITY, STANDARD_PENCIL_LENGTH);
+    }
 
     public Pencil(int durability, int length){
         this.pointDurability = durability;

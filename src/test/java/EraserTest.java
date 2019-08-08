@@ -37,4 +37,11 @@ public class EraserTest {
 
         assertEquals("How much wood would a woodchuck chuck if a wood      could       wood?", paperWithText.getText());
     }
+
+    @Test
+    public void AnEraserIsCreatedWithAGivenDurability(){
+        Eraser eraser = new Eraser(10);
+
+        assertEquals(10, eraser.getDurability());
+    }
 }
