@@ -132,6 +132,7 @@ public class PencilTest {
 
         assertEquals(0, pencilWithNoLengthLeft.getPointDurability());
     }
+
     @Test
     public void WhenAPencilsIsSharpenedItCanWriteMoreCharacters(){
         Pencil pencilWithLowDurability = new Pencil(1, 5);

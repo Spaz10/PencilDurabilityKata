@@ -6,11 +6,13 @@ public class Pencil {
     private int pointDurability;
     private int maxPointDurability;
     private int length;
+    private Eraser eraser;
 
     public Pencil(int durability, int length){
         this.pointDurability = durability;
         this.maxPointDurability = durability;
         this.length = length;
+        this.eraser = new Eraser();
     }
 
     public void write(Paper paper, String textToWrite) {
