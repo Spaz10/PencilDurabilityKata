@@ -172,7 +172,17 @@ public class PencilTest {
     @Test
     public void APencilCanEditAPaperWithAGivenWord(){
         Paper paperWithText = new Paper("An       a day keeps the doctor away");
-        paperWithText.setIndexOfLastErase(4);
+        paperWithText.setIndexOfLastErase(3);
+
+        pencil.edit(paperWithText,"onion");
+
+        assertEquals("An onion a day keeps the doctor away", paperWithText.getText());
+    }
+
+    @Test
+    public void APencilEditsAPaperAtTheIndexOfTheLastErasedWhitespace(){
+        Paper paperWithText = new Paper("An apple a day keeps the doctor away");
+        pencil.erase(paperWithText, "apple");
 
         pencil.edit(paperWithText,"onion");
 

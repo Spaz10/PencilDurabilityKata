@@ -30,10 +30,9 @@ public class Paper {
     }
 
     public void writeInIndexOfErase(String textToWrite){
-        int startEditIndex = this.indexOfLastErase -1;
-        int indexOfEndChar = startEditIndex + textToWrite.length();
+        int indexOfEndChar = this.indexOfLastErase + textToWrite.length();
 
-        for(int i = startEditIndex; i < indexOfEndChar; i++){
+        for(int i = this.indexOfLastErase; i < indexOfEndChar; i++){
             if(Character.isWhitespace(this.text.charAt(i))){
                 this.text.setCharAt(i, textToWrite.charAt(0));
 

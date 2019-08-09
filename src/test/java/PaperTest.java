@@ -53,7 +53,7 @@ public class PaperTest {
     @Test
     public void WritingTextInTheIndexOfLastEraseShouldInsertGivenTextIntoFirstViableSpot(){
         Paper paperWithText = new Paper("An       a day keeps the doctor away");
-        paperWithText.setIndexOfLastErase(4);
+        paperWithText.setIndexOfLastErase(3);
 
         paperWithText.writeInIndexOfErase("onion");
 
@@ -63,7 +63,7 @@ public class PaperTest {
     @Test
     public void WritingTextIndexOfLastEraseWhenTheTextIsLongerThanTheWhiteSpaceOverlapsCharsWithTheAtSymbol(){
         Paper paperWithText = new Paper("An       a day keeps the doctor away");
-        paperWithText.setIndexOfLastErase(4);
+        paperWithText.setIndexOfLastErase(3);
 
         paperWithText.writeInIndexOfErase("artichoke");
 
