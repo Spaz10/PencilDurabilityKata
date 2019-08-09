@@ -61,7 +61,7 @@ public class Pencil {
     }
 
     public void edit(Paper paper, String textToAdd){
-        paper.writeInFirstWhiteSpace(textToAdd);
+        paper.writeInIndexOfErase(textToAdd);
     }
 
     private void decreaseDurability(int decreaseBy){

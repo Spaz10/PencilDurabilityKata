@@ -172,6 +172,7 @@ public class PencilTest {
     @Test
     public void APencilCanEditAPaperWithAGivenWord(){
         Paper paperWithText = new Paper("An       a day keeps the doctor away");
+        paperWithText.setIndexOfLastErase(4);
 
         pencil.edit(paperWithText,"onion");
 

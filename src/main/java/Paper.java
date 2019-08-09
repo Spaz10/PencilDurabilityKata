@@ -1,7 +1,9 @@
 public class Paper {
-    private StringBuilder text;
     private static final char SPACE = ' ';
     private static final char OVERLAP_SYMBOL = '@';
+
+    private StringBuilder text;
+    private int indexOfLastErase;
 
     public Paper() {
         this.text = new StringBuilder("");
@@ -15,15 +17,22 @@ public class Paper {
         return text.toString();
     }
 
+    public int getIndexOfLastErase() {
+        return indexOfLastErase;
+    }
+
+    public void setIndexOfLastErase(int indexOfLastErase) {
+        this.indexOfLastErase = indexOfLastErase;
+    }
+
     public void write(String textToWrite){
         text.append(textToWrite);
     }
 
-    public void writeInFirstWhiteSpace(String textToWrite){
-        int indexOfWhiteSpace = this.text.indexOf("   ") + 1;
-        int indexOfEndChar = indexOfWhiteSpace + textToWrite.length();
+    public void writeInIndexOfErase(String textToWrite){
+        int indexOfEndChar = this.indexOfLastErase + textToWrite.length();
 
-        for(int i = indexOfWhiteSpace; i < indexOfEndChar; i++){
+        for(int i = this.indexOfLastErase; i < indexOfEndChar; i++){
             if(Character.isWhitespace(this.text.charAt(i))){
                 this.text.setCharAt(i, textToWrite.charAt(0));
 

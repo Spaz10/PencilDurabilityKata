@@ -51,19 +51,21 @@ public class PaperTest {
     }
 
     @Test
-    public void WritingTextInTheFirstWhiteSpaceShouldInsertGivenTextIntoFirstViableSpot(){
+    public void WritingTextInTheIndexOfLastEraseShouldInsertGivenTextIntoFirstViableSpot(){
         Paper paperWithText = new Paper("An       a day keeps the doctor away");
+        paperWithText.setIndexOfLastErase(4);
 
-        paperWithText.writeInFirstWhiteSpace("onion");
+        paperWithText.writeInIndexOfErase("onion");
 
         assertEquals("An onion a day keeps the doctor away", paperWithText.getText());
     }
 
     @Test
-    public void WritingTextInTheFirstWhiteSpaceWhenTheTextIsLongerThanTheWhiteSpaceOverlapsCharsWithTheAtSymbol(){
+    public void WritingTextIndexOfLastEraseWhenTheTextIsLongerThanTheWhiteSpaceOverlapsCharsWithTheAtSymbol(){
         Paper paperWithText = new Paper("An       a day keeps the doctor away");
+        paperWithText.setIndexOfLastErase(4);
 
-        paperWithText.writeInFirstWhiteSpace("artichoke");
+        paperWithText.writeInIndexOfErase("artichoke");
 
         assertEquals("An artich@k@ay keeps the doctor away", paperWithText.getText());
     }
