@@ -49,4 +49,13 @@ public class PaperTest {
 
         assertEquals("Apple        Onion", paperWithText.getText());
     }
+
+    @Test
+    public void WritingTextInTheFirstWhiteSpaceShouldInsertGivenTextIntoFirstViableSpot(){
+        Paper paperWithText = new Paper("An       a day keeps the doctor away");
+
+        paperWithText.writeInFirstWhiteSpace("onion");
+
+        assertEquals("An onion a day keeps the doctor away", paperWithText.getText());
+    }
 }
