@@ -58,4 +58,13 @@ public class PaperTest {
 
         assertEquals("An onion a day keeps the doctor away", paperWithText.getText());
     }
+
+    @Test
+    public void WritingTextInTheFirstWhiteSpaceWhenTheTextIsLongerThanTheWhiteSpaceOverlapsCharsWithTheAtSymbol(){
+        Paper paperWithText = new Paper("An       a day keeps the doctor away");
+
+        paperWithText.writeInFirstWhiteSpace("artichoke");
+
+        assertEquals("An artich@k@ay keeps the doctor away", paperWithText.getText());
+    }
 }

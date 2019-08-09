@@ -1,6 +1,7 @@
 public class Paper {
     private StringBuilder text;
     private static final char SPACE = ' ';
+    private static final char OVERLAP_SYMBOL = '@';
 
     public Paper() {
         this.text = new StringBuilder("");
@@ -22,7 +23,13 @@ public class Paper {
         int indexOfWhiteSpace = this.text.indexOf("   ") + 1;
         int indexOfEndChar = indexOfWhiteSpace + textToWrite.length();
 
-        this.text.replace(indexOfWhiteSpace, indexOfEndChar, textToWrite);
+        for(int i = indexOfWhiteSpace; i < indexOfEndChar; i++){
+            if(Character.isWhitespace(this.text.charAt(i))){
+                this.text.setCharAt(i, textToWrite.charAt(0));
+
+            } else this.text.setCharAt(i, OVERLAP_SYMBOL);
+            textToWrite = textToWrite.substring(1);
+        }
     }
 
     public void removeText(int startIndex, int endIndex){
