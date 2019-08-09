@@ -46,6 +46,13 @@ public class PencilTest {
     }
 
     @Test
+    public void WritingASymbolDegradesPencilDurabilityByTwo(){
+        pencil.write(paper, "?");
+
+        assertEquals(18, pencil.getPointDurability());
+    }
+
+    @Test
     public void WritingLowercaseWordTextWithADurabilityOf4WillWriteTheWholeWord(){
         pencil = new Pencil(4, 5, 0);
         pencil.write(paper, "text");

@@ -1,6 +1,7 @@
 public class Pencil {
     private static final int LOWER_CASE_DEGRADATION_AMOUNT = 1;
     private static final int UPPER_CASE_DEGRADATION_AMOUNT = 2;
+    private static final int OTHER_DEGRADATION_AMOUNT = 2;
     private static final int STANDARD_PENCIL_DURABILITY = 20;
     private static final int STANDARD_PENCIL_LENGTH = 5;
 
@@ -44,6 +45,8 @@ public class Pencil {
                 decreaseDurability(LOWER_CASE_DEGRADATION_AMOUNT);
             } else if(Character.isUpperCase(character)) {
                 decreaseDurability(UPPER_CASE_DEGRADATION_AMOUNT);
+            } else if(!Character.isWhitespace(character)){
+                decreaseDurability(OTHER_DEGRADATION_AMOUNT);
             }
         }
     }
