@@ -81,4 +81,14 @@ public class EraserTest {
 
         assertEquals("Buffalo B   ", paperWithText.getText());
     }
+
+    @Test
+    public void EraserSetsPapersIndexOfLastErase(){
+        Paper paperWithText = new Paper("Buffalo Bill");
+        Eraser eraserWithLowDurability = new Eraser(3);
+
+        eraserWithLowDurability.erase(paperWithText, "Bill");
+
+        assertEquals(9, paperWithText.getIndexOfLastErase());
+    }
 }

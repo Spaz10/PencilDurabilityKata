@@ -23,6 +23,7 @@ public class Eraser {
             startIndex += (textToErase.length() - this.durability);
         }
         paper.removeText(startIndex, endIndex);
+        paper.setIndexOfLastErase(startIndex);
 
         String noWhiteSpace = textToErase.replaceAll("\\s+","");
         this.durability = Math.max(0, this.durability - noWhiteSpace.length());
