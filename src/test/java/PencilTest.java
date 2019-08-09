@@ -161,4 +161,13 @@ public class PencilTest {
 
         assertEquals(10, pencil.getEraser().getDurability());
     }
+
+    @Test
+    public void APencilCanEditAPaperWithAGivenWord(){
+        Paper paperWithText = new Paper("An       a day keeps the doctor away");
+
+        pencil.edit(paperWithText,"onion");
+
+        assertEquals("An onion a day keeps the doctor away", paperWithText.getText());
+    }
 }

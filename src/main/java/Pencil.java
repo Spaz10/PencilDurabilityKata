@@ -57,6 +57,10 @@ public class Pencil {
         this.eraser.erase(paper, textToErase);
     }
 
+    public void edit(Paper paper, String textToAdd){
+        paper.writeInFirstWhiteSpace(textToAdd);
+    }
+
     private void decreaseDurability(int decreaseBy){
         this.pointDurability =  Math.max(0, this.pointDurability - decreaseBy);
     }
